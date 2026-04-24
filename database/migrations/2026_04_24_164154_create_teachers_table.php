@@ -14,22 +14,21 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');   
-            $table->unsignedBigInteger('area_id')->nullable()->unique();
+            $table->string('email');
+
+            $table->unsignedBigInteger('area_id')->nullable();
+           
 
             $table->foreign('area_id')
                 ->references('id')
                 ->on('areas')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+                ->nullOnDelete();
 
-            $table->unsignedBigInteger('training_centers_id')->nullable()->unique();
-
+            $table->unsignedBigInteger('training_centers_id')->nullable();
             $table->foreign('training_centers_id')
                 ->references('id')
                 ->on('training_centers')
-                ->onDelete('set null')
-                ->onUpdate('set null');
+                ->nullOnDelete();
 
             $table->timestamps();
         });

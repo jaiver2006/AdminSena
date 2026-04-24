@@ -15,6 +15,23 @@ return new class extends Migration
             $table->id();
             $table->integer('numero_de_curso');
             $table->string('day');
+
+            $table->unsignedBigInteger('area_id')->nullable()->unique();
+
+            $table->foreign('area_id')
+                ->references('id')
+                ->on('areas')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->unsignedBigInteger('training_centers_id')->nullable()->unique();
+
+            $table->foreign('training_centers_id')
+                ->references('id')
+                ->on('training_centers')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
             $table->timestamps();
         });
     }

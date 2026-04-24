@@ -13,9 +13,25 @@ return new class extends Migration
     {
         Schema::create('apprentices', function (Blueprint $table) {
             $table->id();
-                $table->string('name');
-                $table->string('email');    
-                $table->integer('cell_number');         
+            $table->string('name');
+            $table->string('email');
+            $table->integer('cell_number');
+
+            $table->unsignedBigInteger('course_id')->nullable()->unique();
+
+            $table->foreign('course_id')
+                ->references('id')
+                ->on('courses')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->unsignedBigInteger('computer_id')->nullable()->unique();
+
+            $table->foreign('computer_id')
+                ->references('id')
+                ->on('computers')
+                ->onDelete('set null')
+                ->onUpdate('set null');
             $table->timestamps();
         });
     }
