@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Areas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name'
+    ];
+
     public function courses()
     {
         return $this->hasMany("App\Models\courses");

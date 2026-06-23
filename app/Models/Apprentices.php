@@ -9,6 +9,12 @@ class Apprentices extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'cell_number'
+    ];
+
     public function Courses()
     {
         return $this->belongsToMany('App\Models\Courses');

@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Teachers extends Model
 {
     use HasFactory;
+        protected $fillable = [
+        'name',
+        'email'
+    ];
 
     public function Area()
     {

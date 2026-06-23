@@ -1,27 +1,26 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apprentices;
+use App\Models\Computers;
+use App\Models\Courses;
+
 
 class ApprenticesController extends Controller
 {
 
     public function create()
     {
-
-        return view('Apprentices.store');
+        $Computers = Computers::all();
+        $courses = Courses::all();
+        return view('Apprentices.create', compact('Computers', 'courses'));
     }
 
     public function store(Request $request)
     {
 
-        $apprentice = new Apprentices();
-
-        $apprentice->name = $request->name;
-
-        $apprentice->save();
-
-        return $apprentice;
+        Apprentices::create($request->all());
     }
 }

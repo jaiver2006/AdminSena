@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Courses extends Model
 {
     use HasFactory;
-
+        protected $fillable = [
+        'numero_de_curso',
+        'day'
+    ];
     public function Area()
     {
         return $this->belongsTo('App\Models\Areas');

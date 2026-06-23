@@ -16,13 +16,8 @@ class AreasController extends Controller
 
     public function store(Request $request)
     {
-
-        $area = new Areas();
-
-        $area->name = $request->name;
-
-        $area->save();
-
-        return $area;
+        Areas::create($request->all());
     }
 }
+
+
