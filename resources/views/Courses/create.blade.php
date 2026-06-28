@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="background-color: #e4e6e4; padding: 20px;">
 <h1>Courses</h1>
+</div>
 
+
+<div style="background-color: #dfe0cf; padding: 20px;">
 <form action="{{route('Courses.store')}}" method="POST" enctype="multipart/form-data">
 
 @csrf

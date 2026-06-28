@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="background-color: #d8e9ef; padding: 20px;">
 <h1>Computers</h1>
-    <form action="{{ route('Computers.store') }}" method="POST" enctype="multipart/form-data">
+</div>
+
+
+<div style="background-color: #9ea7b1; padding: 20px;">
+<form action="{{route('Computers.store')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
         <label>
@@ -17,6 +22,7 @@
             <br>
             <input type="text" name="brand">
         </label>
+        <br>
         <br>
         <button type="submit">Enviar Formulario:</button>
     </form>
