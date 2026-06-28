@@ -1,35 +1,24 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Apprentices</title>
-</head>
-<body>
-<h1>Apprentices</h1>
+@extends('layouts.app')
 
-<form action="{{route('Apprentices.store')}}" method="POST" enctype="multipart/form-data">
+@section('content')
+<h1>Courses</h1>
+
+<form action="{{route('Courses.store')}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 
 <label>
-    Nombre del aprendiz:
+    Numero del curso:
     <br>
-    <input type="text" name="name">
+    <input type="number" name="numero_de_curso">
 </label>
 <br>
 <label>
-    correo del aprendiz:
+    Day:
     <br>
-    <input type="email" name="email">
+    <input type="text" name="day">
 </label>
 <br>
-
-<label>
-    Número de celular del aprendiz:
-    <br>
-    <input type="number" name="cell_number">
-</label>
 <br>
 <label for="area_id">Área</label>
 <br>
@@ -58,6 +47,4 @@
 <br><br>
 <button type="submit">Enviar Formulario:</button>
 </form>
-
-</body>
-</html>
+@endsection
